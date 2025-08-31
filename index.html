@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tänasilma Pannkoogivõitlus | Saku vald</title>
+  <meta name="description" content="Tänasilma küla iga-aastane mai alguse pannkoogivõitlus – päikeseloojang, seltskond ja turvaline lõbu kogu perele.">
+  <meta property="og:title" content="Tänasilma Pannkoogivõitlus" />
+  <meta property="og:description" content="Kogu Tänasilma rahvas saab kokku mai teisel laupäeval, et teha sõbralik pannkoogisõda ja nautida loojangut." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="et_EE" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;      /* slate-900 */
+      --panel:#111827;   /* gray-900 */
+      --muted:#94a3b8;   /* slate-400 */
+      --text:#e5e7eb;    /* gray-200 */
+      --brand:#f59e0b;   /* amber-500 */
+      --brand-2:#ef4444; /* red-500 */
+      --accent:#22c55e;  /* green-500 */
+      --ring: 0 0 0 3px rgba(245, 158, 11, .35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text); background: radial-gradient(1200px 800px at 80% -10%, rgba(245,158,11,.15), transparent 60%),
+                         radial-gradient(1200px 900px at -10% 110%, rgba(34,197,94,.12), transparent 60%),
+                         var(--bg);
+      line-height:1.6;
+    }
+    a{color:var(--brand)}
+    header{
+      position:relative; overflow:hidden; isolation:isolate;
+      background:linear-gradient(180deg, rgba(17,24,39,.8) 0%, rgba(17,24,39,.6) 100%), url('https://images.unsplash.com/photo-1519864350216-14c1d3c0f88a?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover; background-position:center;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .container{width:100%; max-width:1100px; margin:0 auto; padding:0 20px}
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; padding:96px 0}
+    .hero h1{font-family:'Playfair Display', serif; font-weight:700; font-size: clamp(2rem, 6vw, 4rem); line-height:1.05; margin:0 0 16px}
+    .badge{display:inline-flex; align-items:center; gap:8px; background:rgba(245,158,11,.12); color:#fff; padding:6px 10px; border:1px solid rgba(245,158,11,.4); border-radius:999px; font-weight:600; letter-spacing:.3px;}
+    .lead{font-size:1.1rem; color:#e9e9e9; max-width:60ch}
+    .card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .grid{display:grid; gap:16px}
+    .grid-3{grid-template-columns:repeat(3, 1fr)}
+    .grid-2{grid-template-columns:repeat(2, 1fr)}
+    .section{padding:64px 0; border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-family:'Playfair Display', serif; font-size: clamp(1.6rem, 3.3vw, 2.4rem); margin:0 0 12px}
+    h3{margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; border:1px solid rgba(255,255,255,.14); text-decoration:none; color:#0b0b0b; background:linear-gradient(180deg, #f8d27a, #f59e0b); font-weight:800; box-shadow:0 8px 20px rgba(245,158,11,.35)}
+    .btn:hover{filter:brightness(1.05)}
+    .btn.secondary{background:transparent; color:var(--text); border-color:rgba(255,255,255,.24)}
+    .pill{display:inline-block; padding:2px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.14); font-size:.8rem; color:var(--muted)}
+    .rule{display:flex; gap:12px}
+    .rule .num{flex:0 0 32px; height:32px; border-radius:50%; background:rgba(245,158,11,.15); border:1px solid rgba(245,158,11,.4); display:flex; align-items:center; justify-content:center; font-weight:800}
+    .timeline{position:relative; padding-left:22px}
+    .timeline::before{content:""; position:absolute; left:7px; top:0; bottom:0; width:2px; background:linear-gradient(180deg, rgba(245,158,11,.8), transparent)}
+    .tl-item{margin:14px 0 14px 0; position:relative}
+    .tl-item::before{content:""; position:absolute; left:-16px; top:8px; width:12px; height:12px; background:var(--brand); border:2px solid #111827; border-radius:50%; box-shadow:0 0 0 3px rgba(245,158,11,.25)}
+    .gallery{display:grid; grid-template-columns:repeat(6, 1fr); gap:10px}
+    .gallery img{width:100%; height:100%; object-fit:cover; border-radius:12px; border:1px solid rgba(255,255,255,.08)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .map{width:100%; height:380px; border:0; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    footer{padding:40px 0; color:var(--muted); text-align:center}
+
+    /* responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding:60px 0}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <header role="banner" aria-label="Kodulehe päis">
+    <div class="container hero">
+      <div>
+        <span class="badge" aria-label="Tänasilma küla Saku vallas">🧭 Tänasilma küla · Saku vald</span>
+        <h1>Tänasilma Pannkoogivõitlus</h1>
+        <p class="lead">Iga aasta <strong>mai teisel laupäeval</strong> koguneb Tänasilma kogukond külaplatsile, et pidada sõbralik <em>pannkoogi sõda</em>, nautida 
+          päikeseloojangut üle Jägala ürgoru ääre, kuulata elavat muusikat ja võtta kaasa naeratused.
+        </p>
+        <div class="cta" aria-label="kutsung tegevusele">
+          <a class="btn" href="#registreerumine">Registreeru vabatahtlikuks</a>
+          <a class="btn secondary" href="#ajakava">Vaata ajakava</a>
+        </div>
+        <p class="muted" style="margin-top:10px">Asukoht: <strong>Tänasilma külaplats, Saku vald</strong> · Algus kell <strong>18:00</strong>, sõda kell <strong>20:00</strong>, lõpp kell <strong>22:00</strong>.</p>
+      </div>
+      <div class="card" aria-label="Kiirinfo">
+        <div class="grid grid-2">
+          <div>
+            <h3>Millal?</h3>
+            <p>Mai 2. laupäev · 18:00–22:00</p>
+          </div>
+          <div>
+            <h3>Kus?</h3>
+            <p>Tänasilma külaplats, Saku vald</p>
+          </div>
+          <div>
+            <h3>Osalus</h3>
+            <p>Tasuta üritus · <span class="pill">kogu pere</span></p>
+          </div>
+          <div>
+            <h3>Kaasa</h3>
+            <p>Vanad riided, vahetuspluus, hea tuju</p>
+          </div>
+        </div>
+        <hr style="border:0;border-top:1px solid rgba(255,255,255,.08);margin:16px 0">
+        <p class="muted">Traditsioon sai alguse 2011. aastal, kui külanoored pakkusid välja mõtte lõpetada kevadtalgud 
+          pannkookidega. Keegi viskas naljaviluks pannkoogi õhku… ja ülejäänu on ajalugu.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="sisu" class="container" role="main">
+    <section id="ajakava" class="section" aria-labelledby="ajakava-pealkiri">
+      <h2 id="ajakava-pealkiri">Ajakava</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <h3>18:00 – Väravad avatud</h3>
+          <p class="muted">Kohalik kohvik <em>Väike Pann</em> ja MTÜ <em>Tänasilma Külaselts</em> pakuvad kuumasid pannkooke ja kodumoosi.
+          </p>
+        </div>
+        <div class="tl-item">
+          <h3>19:00 – Pannkoogi töötuba lastele</h3>
+          <p class="muted">Kuidas keerata pannkooki 180° nii, et see ei maandu peas. Lastealal on olemas kiivrid ja põlled.</p>
+        </div>
+        <div class="tl-item">
+          <h3>20:00 – Pannkoogivõitlus</h3>
+          <p class="muted">Võistkonnad moodustatakse kohapeal. Kasutame <strong>biolagunevaid</strong> jahtunud pannkooke ning 
+            tärklisepõhist "täidist". Turvatiim jälgib ala ja ohutusreegleid.</p>
+        </div>
+        <div class="tl-item">
+          <h3>21:00 – Pildinurk ja autasustamine</h3>
+          <p class="muted">Auhinnad: kõige loomingulisem vise, parim meeskonnavaim, legendaarne <em>Kuldne Pann</em>.</p>
+        </div>
+        <div class="tl-item">
+          <h3>21:30 – Loojangukontsert</h3>
+          <p class="muted">Akustiline set kohalikult duetilt <em>SaPan</em> (Saku + Pann), taustal kevadine loojang.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reeglid" class="section" aria-labelledby="reeglid-pealkiri">
+      <h2 id="reeglid-pealkiri">Reeglid & ohutus</h2>
+      <div class="grid grid-3">
+        <div class="card rule">
+          <div class="num" aria-hidden="true">1</div>
+          <div>
+            <h3>Jahtunud, pehmed pannkoogid</h3>
+            <p class="muted">Visata tohib vaid jahtunud pannkooke. Metall- või puidunõud ei kuulu "relvastusse".</p>
+          </div>
+        </div>
+        <div class="card rule">
+          <div class="num" aria-hidden="true">2</div>
+          <div>
+            <h3>Prillid & lastevöönd</h3>
+            <p class="muted">Kohapeal jagame kaitseprille. Alla 10‑aastaste ala on eraldatud ja madalama intensiivsusega.</p>
+          </div>
+        </div>
+        <div class="card rule">
+          <div class="num" aria-hidden="true">3</div>
+          <div>
+            <h3>Keskkonnahoid</h3>
+            <p class="muted">Biolagunev materjal, jäätmed sorteerime. Pärast üritust toimub ühine platsikoristus.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galerii" class="section" aria-labelledby="galerii-pealkiri">
+      <h2 id="galerii-pealkiri">Galerii varasematest aastatest</h2>
+      <p class="muted">Pildid kohalike kogukonnafotograafide kaameratest.</p>
+      <div class="gallery" aria-label="fotogalerii">
+        <img src="https://images.unsplash.com/photo-1548783307-f63b1d8331fd?q=80&w=800&auto=format&fit=crop" alt="Pannkoogid grillil" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop" alt="Naeratavad inimesed välialal" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=800&auto=format&fit=crop" alt="Lapsed osalemas töötoas" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1523371153586-b3b4cfa49da8?q=80&w=800&auto=format&fit=crop" alt="Päikeseloojang külaplatsil" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1511699961468-85f9e37a26ab?q=80&w=800&auto=format&fit=crop" alt="Pannkookide viskamine lõbusas meeleolus" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" alt="Pannkoogid taldrikul moosiga" loading="lazy">
+      </div>
+    </section>
+
+    <section id="registreerumine" class="section" aria-labelledby="reg-pealkiri">
+      <h2 id="reg-pealkiri">Registreeru vabatahtlikuks või võistkonda</h2>
+      <p class="muted">Aitame koos ürituse ladusalt toimima. Vabatahtlikele on 
+        ette nähtud soe tee ja "töökindad" (jah, pannkoogipritsmete vastu!).</p>
+      <div class="grid grid-2">
+        <form class="card" aria-label="registreerimisvorm" onsubmit="event.preventDefault(); this.reset(); alert('Aitäh! Võtame sinuga peagi ühendust.');">
+          <label for="nimi">Nimi</label>
+          <input id="nimi" name="nimi" required placeholder="Ees- ja perekonnanimi" aria-required="true" />
+          <label for="email">E-post</label>
+          <input id="email" name="email" type="email" required placeholder="nimi@post.ee" aria-required="true" />
+          <label for="roll">Soovitud roll</label>
+          <select id="roll" name="roll">
+            <option>Vabatahtlik platsil</option>
+            <option>Turvatiim</option>
+            <option>Korraldus / infolett</option>
+            <option>Võistkonnaliige</option>
+          </select>
+          <label for="sonum">Sõnum (soovi korral)</label>
+          <textarea id="sonum" name="sonum" rows="4" placeholder="Räägi veidi enda kogemusest või sõpradest, kellega tuled."></textarea>
+          <button class="btn" type="submit">Saada</button>
+        </form>
+        <div class="card">
+          <h3>Praktiline info</h3>
+          <ul>
+            <li>Parkimine: külaplatsi kõrval, järgige suunavaid viitasid.</li>
+            <li>Ühistransport: bussipeatus <em>Tänasilma</em>, ~8 min jalutada.</li>
+            <li>Kaasa: korduvkasutatav veepudel (tasuta täitmine joogipunktis).</li>
+            <li>Lemmikloomad on lubatud rihmaga ja väljaspool mänguala.</li>
+          </ul>
+          <p class="muted pill" aria-label="vihje">Vihje: võta kaasa kilekott märgade riiete jaoks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="asukoht" class="section" aria-labelledby="asukoht-pealkiri">
+      <h2 id="asukoht-pealkiri">Asukoht</h2>
+      <p class="muted">Tänasilma külaplats · Saku vald. Kaart on indikatiivne.</p>
+      <iframe class="map" title="Kaart Tänasilma külaplatsist" src="https://maps.google.com/maps?q=T%C3%A4nasilma%20Saku%20vald&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+    </section>
+
+    <section id="kkk" class="section" aria-labelledby="kkk-pealkiri">
+      <h2 id="kkk-pealkiri">KKK</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Kas pean pannkoogid ise kaasa võtma?</h3>
+          <p class="muted">Ei pea. Materjalid on korraldajate poolt ning on spetsiaalselt jahtunud ja pehmed.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Kas üritus toimub iga ilmaga?</h3>
+          <p class="muted">Vihma korral kolime kõrval oleva katusealuse alla ja vähendame mänguala intensiivsust.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Kas see on ohutu?</h3>
+          <p class="muted">Jah. Kasutame ainult pehmeid biolagunevaid panne, kohustuslikud on kaitseprillid ning meditsiinipunkt on platsil.</p>
+        </div>
+        <div class="card">
+          <h3>Kas saan tulla lihtsalt pealtvaatajaks?</h3>
+          <p class="muted">Muidugi! Pealtvaatajatele on eraldi ala ja fotonurk.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p>© <span id="year"></span> Tänasilma Pannkoogivõitlus · Korraldab MTÜ Tänasilma Külaselts · Kontakt: <a href="mailto:info@tanasilmapann.ee">info@tanasilmapann.ee</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // väike interaktiivsus
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // lihtne fookuse stiil vormielementidele
+    for(const el of document.querySelectorAll('input, select, textarea')){
+      el.style.cssText += 'width:100%;margin:.25rem 0 1rem 0;padding:.7rem .9rem;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.03);color:#fff;'
+      el.addEventListener('focus', ()=>{el.style.outline='none'; el.style.boxShadow='var(--ring)'});
+      el.addEventListener('blur', ()=>{el.style.boxShadow='none'});
+    }
+  </script>
+</body>
+</html>
